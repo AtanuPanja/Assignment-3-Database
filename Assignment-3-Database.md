@@ -82,7 +82,7 @@ Answer
 -- );
 
 -- now find the tweets of those users
-SELECT u.user_name AS users_following, t.message, t.created_date 
+SELECT u.user_name AS users_following, t.message AS tweet, t.created_date AS tweeted_on
 FROM Tweets AS t
 INNER JOIN Users AS u
 ON u.user_id = t.user_id
@@ -91,5 +91,5 @@ WHERE u.user_id = (
     FROM Following
     WHERE follower_id = 1
 )
-ORDER BY t.created_date DESC;
+ORDER BY tweeted_on DESC;
 ```
